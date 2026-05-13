@@ -1,0 +1,286 @@
+@charset "utf-8";
+
+/* 🎨 기획안 컬러 팔레트 */
+:root {
+    --dark-merlot: #362622;      /* 묵직한 질감의 메인 컬러 */
+    --ballet-slipper: #FFDCEB;   /* 감성적인 포인트 컬러 */
+    --white: #ffffff;
+    --gray: #f4f4f4;
+    --black: #1a1a1a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: 'Asta Sans', sans-serif; /* 기획안 지정 폰트 */
+}
+
+body {
+    background-color: var(--white);
+    color: var(--dark-merlot);
+}
+
+/* 🧭 헤더 & 네비게이션 */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    background-color: var(--dark-merlot);
+    padding: 0 5rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--ballet-slipper);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.navbar .menu {
+    display: flex;
+}
+
+.menu-item {
+    text-align: center;
+    width: 140px;
+    position: relative;
+}
+
+.navbar a {
+    color: var(--white);
+    display: block;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 1.5rem 0;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: var(--ballet-slipper);
+}
+
+/* 서브메뉴 스타일 */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--dark-merlot);
+    min-width: 160px;
+    border-top: 1px solid var(--ballet-slipper);
+}
+
+.submenu li {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.submenu li a {
+    padding: 12px;
+    font-size: 0.9rem;
+}
+
+.menu-item:hover .submenu {
+    display: block;
+}
+
+/* 🚀 Hero 섹션 (메인 비주얼) */
+.hero {
+    background-image: linear-gradient(rgba(54, 38, 34, 0.6), rgba(54, 38, 34, 0.6)), url('../img/hero_bg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    letter-spacing: -1px;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    color: var(--ballet-slipper);
+}
+
+.cta-btn {
+    background-color: var(--ballet-slipper);
+    color: var(--dark-merlot);
+    padding: 1rem 3rem;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.cta-btn:hover {
+    background-color: var(--white);
+    transform: scale(1.05);
+}
+
+/* 💼 Work 섹션 (육각형 레이아웃) */
+.t_work {
+    text-align: center;
+    padding: 100px 0;
+    background-color: var(--black);
+}
+
+.t_work h1 {
+    color: var(--white);
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.work {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.hexa {
+    width: 350px;
+    height: 350px;
+    position: relative;
+    transition: 0.4s;
+}
+
+.hexa:hover {
+    transform: translateY(-20px);
+}
+
+.shape {
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+}
+
+.shape img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+.cap {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.5s;
+    background: rgba(54, 38, 34, 0.9); /* Dark Merlot 반투명 */
+}
+
+.hexa:hover .cap {
+    opacity: 1;
+}
+
+.cap h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--ballet-slipper);
+}
+
+
+/* About 섹션 배경 및 레이아웃 */
+.section-inner {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--white); /* 기획안의 화이트 배경 */
+}
+
+.accordian-content {
+    display: flex;
+    background-color: var(--white);
+}
+
+.focus {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--gray); /* 왼쪽 여백에 차분한 그레이 적용 */
+}
+
+.accordian {
+    flex: 4;
+    display: flex;
+}
+
+.accordian * {
+    transition: 0.5s;
+}
+
+.accordian li {
+    height: 600px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--dark-merlot); /* 검정 대신 메인 컬러로 선 수정 */
+    cursor: pointer;
+    position: relative;
+    padding: 20px;
+}
+
+.accordian:hover li {
+    flex: 1;
+}
+
+/* 마우스 올렸을 때: 연분홍색(Ballet Slipper)으로 변경 */
+.accordian li:hover {
+    flex: 2;
+    background-color: var(--ballet-slipper); 
+}
+
+/* 마우스 올렸을 때 숫자 색상: 묵직한 메인 컬러로 변경 */
+.accordian li:hover .number {
+    color: var(--dark-merlot);
+}
+
+.accordian li:before {
+    content: attr(data-text);
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 14px;
+    color: #999;
+}
+
+.accordian li .number {
+    font-size: 8rem;
+    color: var(--gray); /* 평소에는 연한 회색 */
+    transform: translateY(-60px);
+    position: relative;
+}
+
+/* 숫자 밑줄 색상 수정 */
+.accordian li .number::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    height: 6px;
+    width: 100%;
+    background-color: var(--dark-merlot); /* 밑줄을 진한 갈색으로 강조 */
+}
